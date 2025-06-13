@@ -201,7 +201,7 @@ def main():
     print("\n--- Performance Benchmarking ---")
     # Define sample sizes for benchmarking
     max_words_available = len(large_word_list)
-    initial_sizes = [500, 1000, 1500, 2000, 2500, 3000, 4000, 5000]
+    initial_sizes = [5000, 10000, 15000, 20000, 25000, 30000, 40000, 50000]
     sample_sizes = [size for size in initial_sizes if size <= max_words_available]
     if not sample_sizes:
         print("Warning: Sample sizes are too large for the available word list. Adjust initial_sizes or corncob_lowercase.txt.")
