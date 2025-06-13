@@ -114,3 +114,28 @@ In a well-balanced tree, traversal across left/right child pointers is logarithm
 
 Compared to standard tries, TSTs offer better space efficiency for sparse datasets due to their selective node creation and compact branching.
 
+## Performance Benchmarking
+
+Performance benchmarking was conducted using a large dataset (`corncob_lowercase.txt`) to evaluate the efficiency of the Ternary Search Tree (TST) insert and search operations. The experiments were executed on the KU Leuven HPC infrastructure to ensure consistent, high-performance testing conditions.
+
+### Methodology
+
+The `benchmark_tst_insert_and_search()` function systematically measures the total time taken to insert and search an increasing number of words in the TST.
+
+#### Key Setup:
+
+- **Sample Sizes**: Benchmarks were conducted for input sizes ranging from **5,000 to 50,000 words**.
+- **Realistic Scenario**: To simulate average-case usage, the input word list was **randomly shuffled** before each run. This avoids biases due to sorted or highly structured data.
+- **Timing**: Both insertion and search times were recorded separately to assess their individual contributions to total runtime.
+
+### Average Case Simulation
+
+Shuffling the word list before each benchmark run provides a more representative estimate of average-case performance by introducing randomness in the TST structure.
+
+### Best/Worst Case Consideration
+
+- **Best Case**: Would occur if inserted words balanced the TST perfectly (not tested explicitly).
+- **Worst Case**: Could occur if all insertions go into one branch (e.g., inserting sorted or very similar words), resulting in a degenerate structure.
+- **Current Focus**: This benchmarking simulates average performance. However, the included theoretical complexity analysis outlines expected behavior under both ideal and degenerate conditions.
+
+
