@@ -1,53 +1,60 @@
 # Concept-of-Data-Science
-Repository for Concept of Data Science 
-                        Ternary Search Tree (TST) Implementation and Performance Analysis
 
-Group member1: Apu Chandra Bhowmick(2469640)
-Group member2: Affnan Akter(2469853)
+## Ternary Search Tree (TST) Implementation and Performance Analysis
 
-In our repository we have two branches: one is main, and the other is Update-branch. Initially our local file code was updated in the main branch, and then we updated group member 1's final results in the main branch, and group member 2's results were updated in the update branch.
+### Group Members
+- Apu Chandra Bhowmick (2469640)  
+- Affnan Akter (2469853)
 
-Project Overview
-This repository contains the implementation of a Ternary Search Tree (TST) data structure in Python, developed as part of the "Concepts of Data Science" course (2024-2025) at Uhasselt. The primary goal of this project was to understand, implement, and benchmark the performance characteristics of TSTs for efficient string storage and retrieval.
+## Project Overview
 
-Repository Structure
-This repository is organized as follows:
+This repository contains the implementation of a Ternary Search Tree (TST) data structure in Python. The project was developed as part of the "Concepts of Data Science" course (2024–2025) at UHasselt. The main objectives are:
 
-tst_benchmark.py: The main Python script containing the TernarySearchTree class implementation, correctness tests, and performance benchmarking functions. (ternary_search_tree.ipynb contains the source for this script.)
+- To understand and implement the TST data structure.
+- To evaluate the correctness of the TST through insertion and search tests.
+- To benchmark the performance of the TST using different input sizes on HPC infrastructure.
 
-data/:
+## Branches
 
-data/search_trees/: Contains the input word lists used for testing and benchmarking.
+This repository contains two branches:
+- `main`: Contains the final version of the code and results from Group Member 1.
+- `Update-branch`: Contains the benchmarking results and code updates from Group Member 2.
 
-insert_words.txt: A list of words used for basic correctness testing (expected to be found).
+## Repository Structure
 
-not_insert_words.txt: A list of words used for basic correctness testing (expected NOT to be found).
 
-corncob_lowercase.txt: A large dictionary of lowercase words used for performance benchmarking.
+## Ternary Search Tree Implementation
 
-results/: (This directory will be created by tst_benchmark.py upon execution)
+The TST is implemented using an object-oriented approach in Python.
 
-benchmark_results.csv: CSV file containing the raw performance data (sample sizes, insert times, search times).
+### `TernaryTreeNode` Class
 
-tst_performance_plot.png: PNG image of the generated performance plot from the HPC run.
+Represents a single node in the TST. Each node contains:
+- A character.
+- A boolean `is_end` flag indicating the end of a word.
+- Left, middle, and right child pointers.
 
-run_benchmark.sh: The Slurm job script used to execute the Python benchmark script on the HPC infrastructure.
+### `TernarySearchTree` Class
 
-Ternary Search Tree Implementation
-The Ternary Search Tree is implemented using an object-oriented approach in Python.
+Provides methods for interacting with the TST:
+- `insert(word)`: Inserts a word into the TST (case-insensitive).
+- `search(word)`: Checks if a word exists in the TST (case-insensitive).
+- `starts_with(prefix)`: Checks if any word in the TST starts with the given prefix.
+- `get_all_words()`: Returns a list of all words stored in the TST.
+- `size()`: Returns the number of words stored in the TST.
 
-TernaryTreeNode Class: Represents a single node in the TST, storing a character, a boolean flag (is_end) indicating if it marks the end of a word, and pointers to its left, middle, and right children.
+## Benchmarking and Evaluation
 
-TernarySearchTree Class: Manages the overall tree structure, providing methods for:
+The performance of the TST is evaluated by:
+- Measuring insertion and search times for varying input sizes.
+- Using a large word list (`corncob_lowercase.txt`) for realistic benchmarking.
+- Running experiments on an HPC system using a SLURM job script (`run_benchmark.sh`).
 
-insert(word): Inserts a given word into the TST. Words are stored case-insensitively (converted to lowercase).
+The script `tst_benchmark.py` automatically:
+- Loads the data.
+- Inserts and searches words in the TST.
+- Records timing data in `benchmark_results.csv`.
+- Generates a performance plot saved as `tst_performance_plot.png`.
 
-search(word): Searches for a given word in the TST, returning True if found and False otherwise. Search is also case-insensitive.
-
-starts_with(prefix): Checks if any word in the TST starts with the given prefix.
-
-get_all_words(): Returns a list of all words stored in the TST.
-
-size(): Returns the number of words stored in the TST.
 
 
