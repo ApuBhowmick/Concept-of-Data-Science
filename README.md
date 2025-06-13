@@ -17,7 +17,7 @@ This repository contains the implementation of a Ternary Search Tree (TST) data 
 ## Branches
 
 This repository contains two branches:
-- `main`: Contains the final version of the code and results from Group Member 1.
+- `main`: Contains the final version of the code from both members and results from Group Member 1.
 - `Update-branch`: Contains the benchmarking results and code updates from Group Member 2.
 
 ## Repository Structure
@@ -138,4 +138,29 @@ Shuffling the word list before each benchmark run provides a more representative
 - **Worst Case**: Could occur if all insertions go into one branch (e.g., inserting sorted or very similar words), resulting in a degenerate structure.
 - **Current Focus**: This benchmarking simulates average performance. However, the included theoretical complexity analysis outlines expected behavior under both ideal and degenerate conditions.
 
+## Discussion
 
+### Overall Trends
+
+Both insertion and search times increase with the number of words, as expected in a growing data structure. Running the benchmarks on the KU Leuven HPC infrastructure results in a cleaner performance profile compared to local runs, as it minimizes interference from background processes.
+
+### Insert vs. Search
+
+Insertion times are consistently higher than search times across all sample sizes. This is expected, as inserting a word involves not only traversing the tree but also potentially creating new nodes and modifying the structure. In contrast, searching only requires traversal of existing nodes.
+
+### Near-Linear Growth
+
+For sample sizes ranging from *5,000 to 50,000 words, both insert and search times exhibit a near-linear growth trend. This observation is consistent with the theoretical average-case complexity of **O(L + log N)*, where:
+
+- *L* is the average length of the word.
+- *N* is the number of nodes in the tree.
+
+Although the logarithmic term (log N) implies sub-linear scaling, the dominant factor for this dataset (using words from corncob_lowercase.txt) appears to be the character comparisons involved, influenced primarily by word length (L). The tree’s structure, which efficiently shares common prefixes, helps maintain this relatively smooth scaling behavior.
+
+### Efficiency
+
+The Ternary Search Tree shows strong practical efficiency for string-based operations. Even at the maximum tested size of *50,000 words*:
+- Total *search time* remains under *0.3 seconds*.
+- Total *insertion time* stays just over *0.5 seconds*.
+
+These results highlight the TST’s suitability for applications that require fast, scalable dictionary-like lookups and insertions.
