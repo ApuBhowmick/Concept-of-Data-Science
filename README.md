@@ -56,5 +56,61 @@ The script `tst_benchmark.py` automatically:
 - Records timing data in `benchmark_results.csv`.
 - Generates a performance plot saved as `tst_performance_plot.png`.
 
+## Code Quality and Documentation
 
+The code is written with a strong emphasis on readability and maintainability. All classes and functions include informative docstrings that describe:
+
+- Their purpose
+- Input arguments
+- Return values
+
+Type hints are consistently used throughout the codebase to improve clarity and assist in static analysis and code completion.
+
+## Correctness Testing
+
+The tst_benchmark.py script includes a suite of correctness tests to verify the functionality of the Ternary Search Tree (TST) implementation.
+
+### Test Inputs
+- insert_words.txt: Words expected to be found in the TST.
+- not_insert_words.txt: Words not inserted and expected to be absent.
+
+### Verified Behaviors
+- Inserted words are successfully found using search().
+- Words not inserted return False on search.
+- Prefix matches (e.g., searching "app" when "apple" is in the tree) are correctly handled by starts_with().
+- Edge cases are tested, including:
+  - Empty strings
+  - Words with shared/common prefixes
+  - Prefixes that are not complete words
+
+The methods get_all_words() and size() are also used to confirm that:
+- All inserted words are present in the tree
+- The number of words returned matches expectations
+
+## Time and Space Complexity Analysis
+
+### Time Complexity
+
+| Operation       | Average Case          | Worst Case               |
+|----------------|------------------------|---------------------------|
+| Insertion       | O(L + log N)          | O(L ⋅ N) or O(L + M)      |
+| Search          | O(L + log N)          | O(L ⋅ N) or O(L + M)      |
+| Prefix Search   | O(L)                  | O(L)                      |
+
+- *L*: Length of the word or prefix
+- *N*: Number of words in the TST
+- *M*: Number of comparisons (can be up to L × alphabet size in degenerate cases)
+
+In a well-balanced tree, traversal across left/right child pointers is logarithmic (log N), while middle pointers are followed per character (L). In degenerate cases, where the tree becomes unbalanced, time complexity increases accordingly.
+
+### Space Complexity
+
+- *Average Case*: O(C × K)
+  - *C*: Total number of unique characters across all words
+  - *K*: Average number of nodes per word path
+
+- *Worst Case*: O(∑Li)  
+  Where *Li* is the length of the i-th word (when words share few or no prefixes)
+
+Compared to standard tries, TSTs offer better space efficiency for sparse datasets due to their selective node creation and compact branching.
 
