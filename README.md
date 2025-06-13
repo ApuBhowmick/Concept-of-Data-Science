@@ -164,3 +164,12 @@ The Ternary Search Tree shows strong practical efficiency for string-based opera
 - Total *insertion time* stays just over *0.5 seconds*.
 
 These results highlight the TST’s suitability for applications that require fast, scalable dictionary-like lookups and insertions.
+
+
+## Conclusion
+
+The Ternary Search Tree (TST) implementation successfully demonstrated its capability to efficiently store and retrieve a substantial number of words. 
+
+Benchmarking on the KU Leuven HPC infrastructure confirmed that both insertion and search operations scale effectively with increasing dataset sizes, showing near-linear growth consistent with theoretical average-case complexity.
+
+Overall, the TST proves to be a robust and performant data structure for dictionary-like applications—especially in scenarios where memory efficiency and fast string operations are essential.
