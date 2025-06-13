@@ -1,0 +1,51 @@
+SLURM_JOB_ID: 58226899
+SLURM_JOB_USER: vsc37504
+SLURM_JOB_ACCOUNT: lp_h_ds_students
+SLURM_JOB_NAME: tst_benchmark.slurm
+SLURM_CLUSTER_NAME: genius
+SLURM_JOB_PARTITION: batch
+SLURM_NNODES: 1
+SLURM_NODELIST: r26i27n01
+SLURM_JOB_CPUS_PER_NODE: 1
+Date: Fri Jun 13 14:45:46 CEST 2025
+Walltime: 00-00:05:00
+========================================================================
+--- Correctness Testing ---
+Inserting 22 words into the TST...
+Insertion complete.
+
+Verifying Inserted Words (Expected True):
+'combine': True
+'combinations': True
+'combination': True
+'combined': True
+'combines': True
+'ducks': True
+'ducked': True
+'duck': True
+'futile': True
+'futility': True
+'future': True
+'fontain': True
+'font': True
+'far': True
+'a': True
+'the': True
+'their': True
+'therefor': True
+'there': True
+'bomb': True
+'futile': True
+'there': True
+All inserted words found correctly.
+
+--- Performance Benchmarking ---
+Starting benchmark with sample sizes: [500, 1000, 1500, 2000, 2500, 3000, 4000, 5000]
+Benchmarking complete.
+Benchmark results saved to results/benchmark_results.csv
+Performance plot saved to results/tst_performance_plot.png
+All words: ['a', 'bomb', 'combination', 'combinations', 'combine', 'combined', 'combines', 'duck', 'ducked', 'ducks', 'far', 'font', 'fontain', 'futile', 'futility', 'future', 'the', 'their', 'there', 'therefor']
+Size: 20
+real 2.26
+user 1.01
+sys 0.08
