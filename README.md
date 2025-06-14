@@ -139,8 +139,6 @@ Shuffling the word list before each benchmark run provides a more representative
 - **Current Focus**: This benchmarking simulates average performance. However, the included theoretical complexity analysis outlines expected behavior under both ideal and degenerate conditions.
 
 ## Discussion
-![TST Performance Plot](https://github.com/ApuBhowmick/Concept-of-Data-Science/blob/main/HPC%20Benchmarking2/results/tst_performance_plot.png)
-
 
 ### Overall Trends
 
@@ -151,6 +149,8 @@ Both insertion and search times increase with the number of words, as expected i
 Insertion times are consistently higher than search times across all sample sizes. This is expected, as inserting a word involves not only traversing the tree but also potentially creating new nodes and modifying the structure. In contrast, searching only requires traversal of existing nodes.
 
 ### Near-Linear Growth
+
+![TST Performance Plot](https://github.com/ApuBhowmick/Concept-of-Data-Science/blob/main/HPC%20Benchmarking2/results/tst_performance_plot.png)
 
 For sample sizes ranging from *5,000 to 50,000 words, both insert and search times exhibit a near-linear growth trend. This observation is consistent with the theoretical average-case complexity of **O(L + log N)*, where:
 
