@@ -139,6 +139,8 @@ Shuffling the word list before each benchmark run provides a more representative
 - **Current Focus**: This benchmarking simulates average performance. However, the included theoretical complexity analysis outlines expected behavior under both ideal and degenerate conditions.
 
 ## Discussion
+![TST Performance Plot](HPC Benchmarking2/results/tst_performance_plot.png)
+
 
 ### Overall Trends
 
